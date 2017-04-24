@@ -296,8 +296,8 @@ class RefundReasonField(Field):
     def python_value(self, value):
         if value is not None:
             return Reason(
-                type=value.get('RefundReasonType') or value['RefusedReasonType'],
-                message=value.get('RefundReasonMessage') or value['RefusedReasonMessage']
+                type=value.get('RefundReasonType') or value['RefundReasonType'],
+                message=value.get('RefundReasonMessage') or value['RefundReasonMessage']
             )
 
         return value
@@ -307,8 +307,8 @@ class RefundReasonField(Field):
 
         if isinstance(value, Reason):
             value = {
-                'RefusedReasonType': value.type,
-                'RefusedReasonMessage': str(value.message)
+                'RefundReasonType': value.type,
+                'RefundReasonMessage': str(value.message)
             }
 
         return value
